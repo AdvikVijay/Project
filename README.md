@@ -27,47 +27,53 @@ Voltage sags and swells in industrial power systems can disrupt the performance 
 
 ## 🧠 Machine Learning Implementation
 
-- **Input Features:** Phase voltages (Va, Vb, Vc), rectifier outputs, previous compensation voltages
-- **Target:** Optimal compensation voltage to maintain DC link at 378V
-- **Models Tested:** Linear Regression, Support Vector Regression (SVR), Random Forest Regressor
+- **Input Features:** Phase voltages (Va, Vb, Vc), rectifier outputs, previous compensation voltages  
+- **Target:** Optimal compensation voltage to maintain DC link at 378V  
+- **Models Tested:** Linear Regression, Support Vector Regression (SVR), Random Forest Regressor  
 - **Performance Metrics:** RMSE, R² Score, Compensation Accuracy
 
 ---
 
 ## 🔬 Simulation Architecture
-3-Phase Grid Input
-        ↓
-Diode Bridge Rectifier
-        ↓
-SEPIC Converter ← PID (ML-tuned)
-        ↓
-DC Link Capacitor
-        ↓
-3-Phase PWM Inverter
-        ↓
-3-Phase Induction Motor
+
+```
+3-Phase Grid Input  
+        ↓  
+Diode Bridge Rectifier  
+        ↓  
+SEPIC Converter ← PID (ML-tuned)  
+        ↓  
+DC Link Capacitor  
+        ↓  
+3-Phase PWM Inverter  
+        ↓  
+3-Phase Induction Motor  
+```
+
 ---
 
 ## 📊 Results
 
-- **Voltage Regulation:** Maintained DC link within ±2% of 378V under up to 25% grid fluctuation
-- **PID Tuning:** Reduced response time and overshoot compared to manually tuned controller
-- **Model Accuracy:** SVR achieved R² score of 0.93 in predicting optimal compensation voltages
+- **Voltage Regulation:** Maintained DC link within ±2% of 378V under up to 25% grid fluctuation  
+- **PID Tuning:** Reduced response time and overshoot compared to manually tuned controller  
+- **Model Accuracy:** SVR achieved R² score of 0.93 in predicting optimal compensation voltages  
 - **Visualizations:** Real-time plots of rotor speed, torque, and voltage behavior under faults
 
 ---
 
 ## 🚀 How to Run
 
-1. Clone the repository
-2. Open and simulate the `VRT_model.slx` in MATLAB/Simulink
-3. Run `data_extraction.py` to generate datasets from simulation outputs
-4. Train models using `ml_model_training.ipynb`
+1. Clone the repository  
+2. Open and simulate the `VRT_model.slx` in MATLAB/Simulink  
+3. Run `data_extraction.py` to generate datasets from simulation outputs  
+4. Train models using `ml_model_training.ipynb`  
 5. View results and visualizations in the notebook
 
 ---
 
 ## 📁 Repository Structure
+
+```
 ├── Simulink/
 │   └── VRT_model.slx
 ├── data/
@@ -80,13 +86,15 @@ DC Link Capacitor
 │   └── visualizations/
 ├── README.md
 └── report/
-└── final_thesis.pdf
+    └── final_thesis.pdf
+```
+
 ---
 
 ## 🤖 Future Scope
 
-- Integration with **Reinforcement Learning** for dynamic gain adjustment
-- Real-time control on **microcontroller (ESP32/RPi)** with ML model deployment
+- Integration with **Reinforcement Learning** for dynamic gain adjustment  
+- Real-time control on **microcontroller (ESP32/RPi)** with ML model deployment  
 - Expansion to **renewable power sources (PV/Fuel Cell)** for smart grid integration
 
 ---
